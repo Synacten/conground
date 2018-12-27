@@ -5,9 +5,8 @@ const cors = require('@koa/cors');
 const path = require('path');
 const views = require('koa-views');
 const serve = require('koa-static');
-const Router = require('koa-router');
+const { router } = require('./routes/routes');
 
-const router = new Router();
 const app = new Koa();
 
 app.use(logger({
@@ -28,11 +27,6 @@ app.use(views(path.join(__dirname, '/views'), {
   },
 }));
 
-router.get('/', async (ctx) => {
-  await ctx.render('index', {
-    title: 'Main page',
-  });
-});
 
 app.use(router.routes());
 app.use(router.allowedMethods());
