@@ -4,6 +4,7 @@ const helmet = require('koa-helmet');
 const cors = require('@koa/cors');
 const path = require('path');
 const views = require('koa-views');
+const serve = require('koa-static');
 const Router = require('koa-router');
 
 const router = new Router();
@@ -15,6 +16,7 @@ app.use(logger({
   .use(helmet())
   .use(cors());
 
+app.use(serve(path.join(__dirname, '/public')));
 app.use(views(path.join(__dirname, '/views'), {
   extension: 'hbs',
   map: { hbs: 'handlebars' },
