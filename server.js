@@ -1,31 +1,34 @@
 const Koa = require('koa');
-const logger = require('koa-pino-logger');
 const helmet = require('koa-helmet');
 const cors = require('@koa/cors');
 const path = require('path');
-const views = require('koa-views');
+const render = require('koa-ejs');
 const serve = require('koa-static');
 const { router } = require('./routes/routes');
 
 const app = new Koa();
 
-app.use(logger({
-  prettyPrint: true,
-}))
+app.use(async (ctx, next) => {
+  await next();
+  const rt = ctx.response.get('X-Response-Time');
+  global.console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+}).use(async (ctx, next) => {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  ctx.set('X-Response-Time', `${ms}ms`);
+})
   .use(helmet())
   .use(cors());
 
 app.use(serve(path.join(__dirname, '/public')));
-app.use(views(path.join(__dirname, '/views'), {
-  extension: 'hbs',
-  map: { hbs: 'handlebars' },
-  options: {
-    partials: {
-      header: 'partials/header',
-      footer: 'partials/footer',
-    },
-  },
-}));
+render(app, {
+  root: path.join(__dirname, 'views'),
+  layout: 'index',
+  viewExt: 'ejs',
+  cache: false,
+  debug: true,
+});
 
 
 app.use(router.routes());

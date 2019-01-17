@@ -1,6 +1,6 @@
 const root = async (ctx) => {
   await ctx.render('index', {
-    title: 'Main page',
+    pageTitle: 'Main page',
   });
 };
 
