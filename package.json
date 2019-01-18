@@ -41,7 +41,9 @@
     "webpack-cli": "^3.2.1"
   },
   "browserslist": [
-    "last 4 versions"
+    "last 4 versions",
+    "> 1%",
+    "IE 10"
   ],
   "babel": {
     "presets": [
