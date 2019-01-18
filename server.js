@@ -27,7 +27,7 @@ render(app, {
   layout: 'index',
   viewExt: 'ejs',
   cache: false,
-  debug: true,
+  debug: false,
 });
 
 
@@ -35,4 +35,4 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 const port = process.env.port || 3300;
-app.listen(port);
+app.listen(port, () => global.console.log(`listen on ${port}`));
