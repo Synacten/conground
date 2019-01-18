@@ -23,7 +23,7 @@ app
   .use(helmet())
   .use(cors());
 
-app.use(serve(path.join(__dirname, '/public')));
+app.use(serve(path.join(__dirname, '/dist')));
 render(app, {
   root: path.join(__dirname, 'views'),
   layout: 'index',
@@ -35,5 +35,5 @@ render(app, {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const port = process.env.port || 3300;
+const port = process.env.port || 3400;
 app.listen(port, () => global.console.log(`listen on ${port}`));
