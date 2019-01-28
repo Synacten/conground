@@ -30,12 +30,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        use: [{ loader: 'html-loader', options: { minimize: false } }],
+      },
+      {
         test: /\.(png|jp(e*)g|svg)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
-              name: 'img/[name].[ext]',
+              name: './img/[name].[ext]',
               limit: 100,
             },
           },
@@ -43,6 +47,15 @@ module.exports = {
             loader: 'img-loader',
           },
         ],
+      },
+      {
+        test: /\.(woff2?|ttf|otf|eot|svg)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+        options: {
+          name: './fonts/[name].[ext]',
+          publicPath: '../',
+        },
       },
       {
         test: /\.js$/,
@@ -53,9 +66,13 @@ module.exports = {
       },
       {
         test: /\.(sass|scss)$/,
-        exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -64,22 +81,20 @@ module.exports = {
           },
           {
             loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true,
-            },
           },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => autoprefixer,
+              plugins: () => [
+                autoprefixer,
+              ],
               sourceMap: true,
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false,
-              includePaths: ['/src/img', '../'],
+              sourceMap: true,
             },
           },
         ],

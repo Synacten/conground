@@ -4,7 +4,7 @@
   "description": "cms",
   "main": "server",
   "scripts": {
-    "back": "nodemon server.js",
+    "back": "nodemon --watch server.js",
     "front": "webpack --watch"
   },
   "keywords": [
