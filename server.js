@@ -26,7 +26,7 @@ app
 app.use(serve(path.join(__dirname, '/dist')));
 render(app, {
   root: path.join(__dirname, 'views'),
-  layout: 'index',
+  layout: false,
   viewExt: 'ejs',
   cache: false,
   debug: false,
