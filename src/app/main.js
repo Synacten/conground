@@ -6,15 +6,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-
     };
   }
 
+
   render() {
     return (
-      <div>react</div>
+      <div className="test">
+        <h1>react</h1>
+      </div>
     );
   }
 }
+
 
 ReactDom.render(<App />, document.querySelector('.root'));
