@@ -1,3 +1,4 @@
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -6,7 +7,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: './js/bundle.js',
+    filename: './app/bundle.js',
   },
   mode: 'production',
   optimization: {
@@ -102,6 +103,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new HtmlWebPackPlugin({
+      template: 'src/index.html',
+      filename: './index.html',
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: '[id].css',

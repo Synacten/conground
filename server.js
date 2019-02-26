@@ -23,11 +23,18 @@ app
   .use(helmet())
   .use(cors());
 
+function status() {
+  if (process.env === 'production') {
+    return 'dist';
+  }
+  return 'src';
+}
+
 app.use(serve(path.join(__dirname, '/dist')));
 render(app, {
-  root: path.join(__dirname, 'views'),
+  root: path.join(__dirname, status()),
   layout: false,
-  viewExt: 'ejs',
+  viewExt: 'html',
   cache: false,
   debug: false,
 });
@@ -35,5 +42,5 @@ render(app, {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const port = process.env.port || 3400;
+const port = process.env.port || 3405;
 app.listen(port, () => global.console.log(`listen on ${port}`));
