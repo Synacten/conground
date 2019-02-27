@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 export default class About extends Component {
@@ -11,15 +12,11 @@ export default class About extends Component {
   }
 
   render() {
-    const { title } = this.props;
     return (
-      <div>
-        {title}
+      <div className="about">
+        about from
+        <Link to="/">to home</Link>
       </div>
     );
   }
 }
-
-About.propTypes = {
-  title: PropTypes.string.isRequired,
-};

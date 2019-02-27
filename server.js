@@ -23,16 +23,10 @@ app
   .use(helmet())
   .use(cors());
 
-function status() {
-  if (process.env === 'production') {
-    return 'dist';
-  }
-  return 'src';
-}
 
 app.use(serve(path.join(__dirname, '/dist')));
 render(app, {
-  root: path.join(__dirname, status()),
+  root: path.join(__dirname, 'dist'),
   layout: false,
   viewExt: 'html',
   cache: false,

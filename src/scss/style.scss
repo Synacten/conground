@@ -4,12 +4,8 @@
 * {
   margin: 0;
 }
-.test{
-    color: blueviolet;
-    h1{
-        font-size: 2em;
-    }
-    .about{
-        color: red;
-    }
+
+.about{
+    color: green;
+    font-family: $ubuntu;
 }

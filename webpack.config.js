@@ -7,10 +7,11 @@ const path = require('path');
 
 module.exports = {
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'src'),
     compress: true,
     port: 7900,
     open: 'Chrome',
+    historyApiFallback: true,
   },
   entry: './src/index.js',
   output: {
