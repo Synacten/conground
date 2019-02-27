@@ -1,9 +1,10 @@
 import '@babel/polyfill';
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from './components/About';
 import Root from './components/Root';
+import Page404 from './components/Page404';
 
 class App extends Component {
   constructor() {
@@ -16,8 +17,11 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exec path="/" component={Root} />
-          <Route exec path="/about" component={About} />
+          <Switch>
+            <Route path="/" exact component={Root} />
+            <Route path="/about" component={About} />
+            <Route component={Page404} />
+          </Switch>
         </div>
       </BrowserRouter>
     );

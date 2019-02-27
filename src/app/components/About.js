@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
@@ -11,10 +10,19 @@ export default class About extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    this.location.replace('/');
+  }
+
+
   render() {
     return (
       <div className="about">
-        about from
+        <p>about from</p>
         <Link to="/">to home</Link>
       </div>
     );
