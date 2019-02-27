@@ -15,7 +15,7 @@ export default class About extends Component {
   }
 
   handleScroll() {
-    this.location.replace('/');
+    this.console.log(1);
   }
 
 

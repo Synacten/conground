@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Slider from './Slider';
+import Slider from '../components/Slider';
 import pic from '../../img/6land.jpg';
 
 
-export default class Root extends Component {
+export default class Main extends Component {
   constructor() {
     super();
     this.state = {
