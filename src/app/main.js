@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from './components/About';
 import Root from './components/Root';
 import Page404 from './components/Page404';
+import Slider from './components/Slider';
 
 class App extends Component {
   constructor() {

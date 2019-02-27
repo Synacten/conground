@@ -12,6 +12,7 @@ module.exports = {
     port: 7900,
     open: 'Chrome',
     historyApiFallback: true,
+    hot: true,
   },
   entry: './src/index.js',
   output: {
