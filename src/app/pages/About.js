@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 
 export default class About extends Component {
@@ -23,8 +24,7 @@ export default class About extends Component {
     document.title = 'About';
     return (
       <div className="about">
-        <p>about from</p>
-        <Link to="/">to home</Link>
+        <NavBar />
       </div>
     );
   }

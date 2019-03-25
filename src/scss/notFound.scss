@@ -1,0 +1,16 @@
+.notFound{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    .innerText{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: $ubuntu;
+        h2{
+            font-size: 3em;
+        }
+    }
+}

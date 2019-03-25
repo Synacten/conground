@@ -1,0 +1,57 @@
+.auth{
+    width: 100%;
+    font-family: $ubuntu;
+    .formBlock{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .signIn{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            form{
+                width: 400px;
+                background-color: rgb(241, 251, 255);
+                padding: 20px;
+                border-radius: 15px;
+                p{
+                    text-align: center;
+                    font-size: 2em;
+                }
+                display: flex;
+                flex-direction: column;
+                label{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 10px 0;
+                    input{
+                        margin: 10px 0;
+                        height: 30px;
+                        border: none;
+                        border-radius: 4px;
+                        transition: all 0.30s ease-in-out;
+                        outline: none;
+                        padding: 3px 0px 3px 3px;
+                        margin: 5px 1px 3px 0px;
+                        border: 1px solid #DDDDDD;
+                        &:focus{
+                            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+                            padding: 3px 0px 3px 3px;
+                            margin: 5px 1px 3px 0px;
+                            border: .7px solid rgba(81, 203, 238, 1);
+                        }
+                    }
+                    input[name='submit']{
+                        font-family: $ubuntu;
+                        font-size: 1.1em;
+                    }
+                }
+            }
+        }
+        .regist{
+
+        }
+    }
+}
