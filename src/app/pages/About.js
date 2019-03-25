@@ -15,11 +15,12 @@ export default class About extends Component {
   }
 
   handleScroll() {
-    this.console.log(1);
+    this.console.log(2);
   }
 
 
   render() {
+    document.title = 'About';
     return (
       <div className="about">
         <p>about from</p>
@@ -28,3 +29,12 @@ export default class About extends Component {
     );
   }
 }
+
+const a = () => {
+  if (a < 0) {
+    return a;
+  }
+  return a + 1;
+};
+
+a(2);

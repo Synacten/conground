@@ -35,8 +35,9 @@ export default class Main extends Component {
 
   render() {
     const { content } = this.state;
+    document.title = 'Main page';
     return (
-      <div>
+      <div className="mainWrap">
         root
         <Slider cont={content} />
         <Link to="/about">to About</Link>
