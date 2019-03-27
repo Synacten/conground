@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import JwPagination from 'jw-react-pagination';
 import NavBar from '../components/NavBar';
 
 
