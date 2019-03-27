@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Parallax } from 'react-parallax';
 import Slider from '../components/Slider';
 import NavBar from '../components/NavBar';
 import pic from '../../img/6land.jpg';
@@ -43,8 +43,17 @@ export default class Main extends Component {
         <div className="sliderWrap">
           <Slider cont={content} />
         </div>
-
-        <Link to="/about">to About</Link>
+        <div className="par">
+          <Parallax
+            blur={0}
+            bgImage={pic}
+            bgImageAlt="the cat"
+            strength={1000}
+          >
+            <div className="text">12</div>
+            <div style={{ height: '200px' }} />
+          </Parallax>
+        </div>
       </div>
     );
   }

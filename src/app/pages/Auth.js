@@ -49,6 +49,7 @@ checkPassword = (e) => {
 
 render() {
   const { username, email, password } = this.state;
+  document.title = 'Auth';
   return (
     <div className="auth">
       <NavBar />

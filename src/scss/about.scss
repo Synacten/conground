@@ -1,0 +1,35 @@
+.about{
+    .phpApi{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        font-family: $ubuntu;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        .eachCont{
+            background-color: rgb(238, 255, 232);
+            margin: 5px;
+            width: 200px;
+            padding: 5px 5px 30px 5px;
+            position: relative;
+            &:hover{
+                background-color: rgb(213, 255, 199);
+            }
+            h2{
+                font-size: 1em;
+                border-bottom: 1px solid rgb(226, 226, 226);
+                padding-bottom: 3px;
+            }
+            span{
+                font-size: .9em;
+                padding: 5px 0;
+                display: block;
+            }
+            h6{
+                position: absolute;
+                bottom: 5px;
+            }
+        }
+    }
+}

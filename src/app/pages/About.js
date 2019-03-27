@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import JwPagination from 'jw-react-pagination';
 import NavBar from '../components/NavBar';
 
 
@@ -30,10 +31,13 @@ export default class About extends Component {
         <NavBar />
         <div className="phpApi">
           {data.map(n => (
-            <div>
+            <div className="eachCont" key={n.id}>
               <h2>{n.title}</h2>
               <span>{n.director}</span>
-              <h6>{n.count}</h6>
+              <h6>
+                {'Очки:'}
+                {n.count}
+              </h6>
             </div>
 
           ))}

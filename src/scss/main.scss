@@ -1,6 +1,16 @@
 .mainWrap{
     width: 100%;
     .sliderWrap{
-        width: 200px;
+        width: 60%;
+        margin: 20px auto;
+
+    }
+    .par{
+        width: 80%;
+        margin: 0 auto;
+        .text{
+            display: flex;
+            justify-content: center;
+        }
     }
 }
