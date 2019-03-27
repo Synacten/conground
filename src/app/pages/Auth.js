@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import NavBar from '../components/NavBar';
 
 export default class Auth extends Component {
@@ -20,21 +21,15 @@ export default class Auth extends Component {
   authForm = async (e) => {
     e.preventDefault();
     const { username, email, password } = this.state;
-    const SendAuthData = await fetch('http://192.168.7.39:2800/login', {
-      method: 'POST',
-      mode: 'cors',
-      credentials: 'include',
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    const data = await axios.post('http://192.168.7.39:2800/login', {
+      username,
+      email,
+      password,
+    },
+    {
+      withCredentials: true,
     });
-    console.log(SendAuthData);
+    console.log(data);
   }
 
   checkUsername = (e) => {
