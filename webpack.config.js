@@ -4,6 +4,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devServer: {
@@ -15,7 +16,7 @@ module.exports = {
   },
   entry: './src/index.js',
   output: {
-    filename: './app/bundle.js',
+    filename: './js/bundle.js',
   },
   mode: 'production',
   optimization: {
@@ -119,5 +120,8 @@ module.exports = {
       filename: 'css/[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyPlugin([
+      { from: '.htaccess', to: './' },
+    ]),
   ],
 };

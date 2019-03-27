@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import NavBar from '../components/NavBar';
 
 
@@ -13,9 +12,9 @@ export default class About extends Component {
 
   async componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    const response = await axios.get('http://192.168.7.39:2800/profile');
-    const json = await response.json();
-    console.log(json);
+    const response = await fetch('http://localhost:3700/php/api/post/read.php');
+    const { data } = await response.json();
+    this.setState({ data });
   }
 
   handleScroll() {
@@ -25,9 +24,20 @@ export default class About extends Component {
 
   render() {
     document.title = 'About';
+    const { data } = this.state;
     return (
       <div className="about">
         <NavBar />
+        <div className="phpApi">
+          {data.map(n => (
+            <div>
+              <h2>{n.title}</h2>
+              <span>{n.director}</span>
+              <h6>{n.count}</h6>
+            </div>
+
+          ))}
+        </div>
       </div>
     );
   }
