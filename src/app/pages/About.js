@@ -11,7 +11,6 @@ export default class About extends Component {
   }
 
   async componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
     const response = await fetch('http://localhost:3700/php/api/post/read.php');
     const { data } = await response.json();
     this.setState({ data });

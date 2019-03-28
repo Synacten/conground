@@ -24,7 +24,7 @@ class Slider extends Component {
     const { cont } = this.props;
     return (
       <Carousel {...options}>
-        {cont.map(n => <div><img key={n.key} src={n.img} alt={n.title} /></div>)}
+        {cont.map(n => <div key={n.key}><img src={n.img} alt={n.title} /></div>)}
       </Carousel>
     );
   }

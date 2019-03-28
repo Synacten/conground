@@ -4,6 +4,10 @@
     background-color: rgb(157, 227, 255);
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     ul{
         transform: translateX(-20px);
         font-family: $ubuntu;
@@ -12,6 +16,22 @@
         align-items: center;
         li{
             padding: 0 10px;
+        }
+    }
+    .scrollUp{
+        position: fixed;
+        bottom: 40px;
+
+        z-index: 10;
+        transition: all .3s;
+        i{
+            color: rgb(157, 227, 255);
+            font-size: 2em;
+            cursor: pointer;
+            transition: all .5s;
+            &:hover{
+                color: rgb(162, 226, 146);  
+            }
         }
     }
 }
