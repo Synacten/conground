@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
 
-
 export default class About extends Component {
   constructor() {
     super();
@@ -15,11 +14,6 @@ export default class About extends Component {
     const { data } = await response.json();
     this.setState({ data });
   }
-
-  handleScroll() {
-    this.console.log(2);
-  }
-
 
   render() {
     document.title = 'About';
@@ -45,12 +39,3 @@ export default class About extends Component {
     );
   }
 }
-
-const a = () => {
-  if (a < 0) {
-    return a;
-  }
-  return a + 1;
-};
-
-a(2);
