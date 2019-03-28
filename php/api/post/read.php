@@ -25,6 +25,7 @@
                 'title'=> $title,
                 'director'=> $director,
                 'count'=> $count,
+                'img' => 'http://localhost:3700/php/api/upload/6land.jpg'
             );
             array_push($posts_arr['data'], $post_item);
         }

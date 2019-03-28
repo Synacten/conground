@@ -32,6 +32,7 @@ export default class About extends Component {
           {data.map(n => (
             <div className="eachCont" key={n.id}>
               <h2>{n.title}</h2>
+              <img src={n.img} alt={n.title} />
               <span>{n.director}</span>
               <h6>
                 {'Очки:'}
