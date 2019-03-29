@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { Pagination } from 'antd';
 import NavBar from '../components/NavBar';
 
 export default class About extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: [],
+      minValue: 0,
+      maxValue: 10,
     };
   }
 
@@ -15,14 +18,39 @@ export default class About extends Component {
     this.setState({ data });
   }
 
+  handleChange = (value) => {
+    if (value <= 1) {
+      this.setState({
+        minValue: 0,
+        maxValue: 10,
+      });
+    } else {
+      this.setState({
+        minValue: (value * 10) - 10,
+        maxValue: value * 10,
+      });
+    }
+  };
+
+
   render() {
     document.title = 'About';
-    const { data } = this.state;
+    const { data, minValue, maxValue } = this.state;
     return (
       <div className="about">
         <NavBar />
+        <div className="antPag">
+          <Pagination
+            defaultCurrent={1}
+            total={data.length}
+            defaultPageSize={10}
+            onChange={this.handleChange}
+          />
+        </div>
         <div className="phpApi">
-          {data.map(n => (
+          {data
+          && data.length > 0
+          && data.slice(minValue, maxValue).map(n => (
             <div className="eachCont" key={n.id}>
               <h2>{n.title}</h2>
               <img src={n.img} alt={n.title} />
@@ -32,7 +60,6 @@ export default class About extends Component {
                 {n.count}
               </h6>
             </div>
-
           ))}
         </div>
       </div>
