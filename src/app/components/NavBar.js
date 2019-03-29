@@ -44,6 +44,7 @@ export default class NavBar extends Component {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/auth">Auth</Link></li>
+          <li><Link to="/pixabay">Pixabay</Link></li>
         </ul>
         <div
           role="presentation"

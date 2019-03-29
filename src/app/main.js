@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from './pages/About';
 import Main from './pages/Main';
 import Auth from './pages/Auth';
+import Free from './pages/Free';
 import Page404 from './pages/Page404';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path="/" exact component={Main} />
             <Route path="/about" component={About} />
             <Route path="/auth" component={Auth} />
+            <Route path="/pixabay" component={Free} />
             <Route component={Page404} />
           </Switch>
         </div>
