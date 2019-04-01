@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import NavBar from '../components/NavBar';
+import { Redirect } from 'react-router-dom';
 
 export default class Auth extends Component {
     static defaultProps = {
@@ -12,24 +11,36 @@ export default class Auth extends Component {
     constructor() {
       super();
       this.state = {
-        username: '',
-        email: '',
-        password: '',
+        username: 'john2',
+        email: 'john2@gmail.com',
+        password: '123456',
+        redirect: false,
       };
     }
 
   authForm = async (e) => {
     e.preventDefault();
     const { username, email, password } = this.state;
-    const data = await axios.post('http://192.168.7.39:2800/login', {
-      username,
-      email,
-      password,
-    },
-    {
-      withCredentials: true,
+    const data = await fetch('http://192.168.7.39:2800/login', {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
-    console.log(data);
+
+    if (data.status === 200) {
+      console.log(data.status);
+      this.setState({ redirect: true });
+      if (this.state.redirect) {
+        return <Redirect to="/profile" />;
+      }
+    }
   }
 
   checkUsername = (e) => {
@@ -52,7 +63,6 @@ render() {
   document.title = 'Auth';
   return (
     <div className="auth">
-      <NavBar />
       <div className="formBlock">
         <div className="signIn">
           <form onSubmit={this.authForm} noValidate>

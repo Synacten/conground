@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Pagination } from 'antd';
-import NavBar from '../components/NavBar';
 
 export default class Free extends Component {
   constructor(props) {
@@ -36,7 +35,6 @@ export default class Free extends Component {
     const { hits, minValue, maxValue } = this.state;
     return (
       <div className="pixabayWrap">
-        <NavBar />
         <div className="pixabayPag">
           <Pagination
             defaultCurrent={1}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Pagination } from 'antd';
-import NavBar from '../components/NavBar';
 
 export default class About extends Component {
   constructor(props) {
@@ -38,7 +37,6 @@ export default class About extends Component {
     const { data, minValue, maxValue } = this.state;
     return (
       <div className="about">
-        <NavBar />
         <div className="antPag">
           <Pagination
             defaultCurrent={1}
