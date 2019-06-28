@@ -11,9 +11,9 @@ export default class Auth extends Component {
     constructor() {
       super();
       this.state = {
-        username: 'john2',
-        email: 'john2@gmail.com',
-        password: '123456',
+        username: '',
+        email: '',
+        password: '',
         redirect: false,
       };
     }
@@ -35,26 +35,24 @@ export default class Auth extends Component {
     });
 
     if (data.status === 200) {
-      console.log(data.status);
       this.setState({ redirect: true });
-      if (this.state.redirect) {
+      const { redirect } = this.state;
+      if (redirect) {
         return <Redirect to="/profile" />;
       }
     }
+    return 0;
   }
 
   checkUsername = (e) => {
-    console.log(e.target.value);
     this.setState({ username: e.target.value });
   }
 
   checkEmail = (e) => {
-    console.log(e.target.value);
     this.setState({ email: e.target.value });
   }
 
 checkPassword = (e) => {
-  console.log(e.target.value);
   this.setState({ password: e.target.value });
 }
 
